@@ -45,7 +45,7 @@ const ServiceDetail = () => {
       postedDate: new Date().toISOString().split("T")[0],
     };
 
-    fetch("http://localhost:5000/reviews", {
+    fetch(`http://localhost:5000/reviews`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -54,6 +54,8 @@ const ServiceDetail = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        setRating(0);
+        setReviewText("");
         setReviews((prevReviews) => [...prevReviews, data]);
         setTotalReviews((prevTotal) => prevTotal + 1);
         toast.success("Review added successfully!");

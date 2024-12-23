@@ -2,10 +2,17 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { Rating } from "@smastrom/react-rating";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const MyReviews = () => {
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
+
+  const [selectedReview, setSelectedReview] = useState(null);
+  const [newReviewText, setNewReviewText] = useState("");
+  const [newRating, setNewRating] = useState(0);
+  const navigate = useNavigate();
   useEffect(() => {
     fetch(`http://localhost:5000/reviews?email=${user?.email}`)
       .then((res) => res.json())
@@ -35,7 +42,6 @@ const MyReviews = () => {
                 icon: "success",
               });
               setReviews(reviews.filter((review) => review._id !== _id));
-              
             } else {
               Swal.fire({
                 title: "Error!",
@@ -57,11 +63,59 @@ const MyReviews = () => {
       }
     });
   };
+  // Open update modal
+  const openUpdateModal = (review) => {
+    setSelectedReview(review);
+    setNewReviewText(review.reviewText);
+    setNewRating(review.rating);
+  };
 
+  const handleUpdate = (e) => {
+    e.preventDefault();
+
+    const updatedReview = {
+      reviewText: newReviewText,
+      rating: newRating,
+    };
+
+    fetch(`http://localhost:5000/reviews/${selectedReview._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedReview),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          toast.success("Review updated successfully!");
+          setReviews(
+            reviews.map((review) =>
+              review._id === selectedReview._id
+                ? { ...review, reviewText: newReviewText, rating: newRating }
+                : review
+            )
+          );
+          setSelectedReview(null);
+        } else {
+          toast.error("Failed to update review.");
+        }
+      })
+      .catch((error) => {
+        toast.error("Failed to update review.");
+      });
+
+    
+  };
   return (
     <section className="py-10">
       <div className="max-w-5xl mx-auto">
-        <h1 className="text-2xl font-bold mb-6">My Reviews</h1>
+        <h1 className="text-3xl font-bold mb-6">My Reviews</h1>
+        {reviews.length === 0 && (
+          <p className="text-center text-2xl text-gray-500">
+            You haven't submitted any reviews yet.
+          </p>
+        )}
         <div className="grid grid-cols-1 gap-6">
           {reviews.map((review) => (
             <div key={review._id} className="border p-4 rounded shadow">
@@ -75,7 +129,7 @@ const MyReviews = () => {
               <div className="flex gap-4 mt-4">
                 <button
                   className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                  // onClick={() => openUpdateModal(review)}
+                  onClick={() => openUpdateModal(review)}
                 >
                   Update
                 </button>
@@ -91,9 +145,12 @@ const MyReviews = () => {
         </div>
 
         {/* Update Modal */}
-        {/* {selectedReview && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <div className="bg-white p-6 rounded shadow-lg max-w-md w-full">
+        {selectedReview && (
+          <div   className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <form onSubmit={handleUpdate}
+             
+              className="bg-white p-6 rounded shadow-lg max-w-md w-full"
+            >
               <h2 className="text-xl font-bold mb-4">Update Review</h2>
               <p className="font-semibold">Service Title</p>
               <p className="mb-4">{selectedReview.serviceTitle}</p>
@@ -112,9 +169,11 @@ const MyReviews = () => {
               </div>
               <div className="flex gap-4">
                 <button
+                  type="submit"
                   className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-                  onClick={handleUpdate}
+                  
                 >
+                  
                   Save Changes
                 </button>
                 <button
@@ -124,9 +183,9 @@ const MyReviews = () => {
                   Cancel
                 </button>
               </div>
-            </div>
+            </form>
           </div>
-        )} */}
+        )}
       </div>
     </section>
   );
