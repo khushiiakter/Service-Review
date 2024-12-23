@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const { userLogIn, setUser, auth } = useContext(AuthContext);
@@ -18,6 +19,7 @@ const Login = () => {
         const user = result.user;
         setUser(user);
         setError("");
+        toast.success("Successfully login.");
         navigate("/");
       })
 
@@ -37,6 +39,7 @@ const Login = () => {
         const user = result.user;
         setUser(user);
         setError("");
+        toast.success("Successfully login.")
         navigate("/");
       })
       .catch((error) => {

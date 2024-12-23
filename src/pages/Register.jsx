@@ -38,6 +38,7 @@ const Register = () => {
         const user = result.user;
         setUser(user);
         setError("");
+        toast.success("Successfully login.")
         navigate("/");
       })
 
@@ -73,6 +74,7 @@ const Register = () => {
           .catch((error) => toast("user profile update error"));
         setUser(user);
         setError("");
+        toast.success("Successfully login.")
         navigate("/");
       })
       .catch((error) => {

@@ -44,13 +44,11 @@ const router = createBrowserRouter([
                   
         // },
         {
-          path: "/service-details",
+          path: "/service-details/:id",
           element:<PrivateRoute><ServiceDetail></ServiceDetail></PrivateRoute> ,
-         
-        //   element: <PrivateRoute><MovieDetails></MovieDetails></PrivateRoute>,
-        //   loader: ({params}) =>
-        //      fetch(`https://assignmet-10-server.vercel.app/movies/${params.id}`),
-            
+          loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`),
+
+             
           
         },
         {
