@@ -9,6 +9,7 @@ import AuthLayouts from "../layouts/AuthLayouts";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
+import MyServices from "../pages/MyServices";
 
 
 const router = createBrowserRouter([
@@ -25,11 +26,16 @@ const router = createBrowserRouter([
         {
           path: "/services",
           element: <Services></Services>,
-        //   loader: () => fetch('https://assignmet-10-server.vercel.app/movies')
+          loader: () => fetch('http://localhost:5000/services')
+        },
+        {
+          path: "/my-services",
+          element: <MyServices></MyServices>,
+        
         },
         {
           path: "/add-service",
-        //   element: <PrivateRoute><AddService></AddService></PrivateRoute>,
+        
           element:<PrivateRoute><AddService></AddService></PrivateRoute> ,
         },
         {
@@ -37,12 +43,7 @@ const router = createBrowserRouter([
           element:<PrivateRoute><MyReviews></MyReviews></PrivateRoute> ,
          
         },
-        // {
-        //   path: "",
-        //   element: <PrivateRoute><UpdateMovie></UpdateMovie></PrivateRoute>,
-        //   loader:  ({ params }) =>  fetch(`/movies/${params.id}`).then(res => res.json()),
-                  
-        // },
+        
         {
           path: "/service-details/:id",
           element:<PrivateRoute><ServiceDetail></ServiceDetail></PrivateRoute> ,

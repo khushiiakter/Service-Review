@@ -42,7 +42,36 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
-            {links}
+            <ul className="menu menu-horizontal  px-1 ">
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/services">Services</NavLink>
+          </li>
+        </ul>
+        {user && (
+          <ul className="menu menu-horizontal  px-1 ">
+           
+            <li>
+              <NavLink to="/add-service">Add Service</NavLink>
+            </li>
+            <li>
+              <NavLink to="/my-services">My Service</NavLink>
+            </li>
+            <li>
+              <NavLink to="/myReviews">My Reviews</NavLink>
+            </li>
+            
+          </ul>
+        ) }
+        <ul className="menu menu-horizontal  px-1 ">
+            
+
+            <li>
+              <NavLink to="/aboutUs">About US</NavLink>
+            </li>
+          </ul>
           </ul>
         </div>
         <a className=" md:text-2xl font-bold">Service Review</a>
@@ -61,6 +90,9 @@ const Navbar = () => {
            
             <li>
               <NavLink to="/add-service">Add Service</NavLink>
+            </li>
+            <li>
+              <NavLink to="/my-services">My Service</NavLink>
             </li>
             <li>
               <NavLink to="/myReviews">My Reviews</NavLink>
