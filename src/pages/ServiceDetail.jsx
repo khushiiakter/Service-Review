@@ -1,21 +1,31 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 
 const ServiceDetail = () => {
+  const { id } = useParams();
   const service = useLoaderData();
   const { user } = useContext(AuthContext);
   const { _id, serviceImage, serviceTitle, companyName, description, price } =
     service;
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState(0);
+  const [reviews, setReviews] = useState([]);
+  const [totalReviews, setTotalReviews] = useState(0);
 
-  // const handleRatingChange = (rate) => {
-  //   setRating(rate / 20);
-  // };
+  // Fetch reviews for the service
+  useEffect(() => {
+    fetch(`http://localhost:5000/reviews?serviceId=${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setReviews(data);
+        setTotalReviews(data.length);
+      })
+      .catch((error) => toast.error("Failed to load reviews"));
+  }, [id]);
 
   const AddReview = (e) => {
     e.preventDefault();
@@ -25,7 +35,8 @@ const ServiceDetail = () => {
     }
 
     const review = {
-      _id,
+      serviceId: id,
+      serviceTitle,
       userName: user?.displayName || "Anonymous",
       userPhoto: user?.photoURL || "",
       userEmail: user?.email,
@@ -33,7 +44,7 @@ const ServiceDetail = () => {
       rating,
       postedDate: new Date().toISOString().split("T")[0],
     };
-   
+
     fetch("http://localhost:5000/reviews", {
       method: "POST",
       headers: {
@@ -42,10 +53,12 @@ const ServiceDetail = () => {
       body: JSON.stringify(review),
     })
       .then((res) => res.json())
-      .then(data => {
-        console.log(data);
+      .then((data) => {
+        setReviews((prevReviews) => [...prevReviews, data]);
+        setTotalReviews((prevTotal) => prevTotal + 1);
+        toast.success("Review added successfully!");
       })
-
+      .catch((error) => toast.error("Failed to submit review"));
   };
   return (
     <section className="py-10">
@@ -76,32 +89,9 @@ const ServiceDetail = () => {
             <div className="my-6">
               <p className=" mt-2">{description}</p>
             </div>
-
-            {/* Action Buttons */}
-            {/* <div className="flex gap-4 mt-auto">
-            <button
-              onClick={handleDelete}
-              className="btn text-gray-400 hover:bg-red-800 rounded-lg btn-outline "
-            >
-              Delete Movie
-            </button>
-          
-            <button
-              onClick={handleAddToFavorites}
-              className="btn btn-outline text-gray-400    hover:bg-[#5f1a89]  "
-              disabled={!user}
-            >
-              Add to Favorites
-            </button>
-          
-            <Link to={`/update-movie/${_id}`}>
-              <button className="btn btn-outline text-gray-400  hover:bg-[#5f1a89]">
-                Update
-              </button>
-            </Link>
-          </div> */}
           </div>
         </div>
+        {/*  Add review Section */}
         <h2 className="text-xl font-semibold mb-4">Add Your Review</h2>
         <form onSubmit={AddReview}>
           <div className="mb-4">
@@ -115,14 +105,6 @@ const ServiceDetail = () => {
           </div>
           <div className="mb-4">
             <label className="block mb-2 font-medium">Your Rating</label>
-            {/* <Rating
-            onClick={handleRatingChange}
-            ratingValue={rating * 20} // Convert 1-5 scale to 0-100 for react-simple-star-rating
-            size={24}
-            transition
-            fillColor="gold"
-            emptyColor="gray"
-          /> */}
             <Rating
               value={rating}
               onChange={setRating}
@@ -136,6 +118,31 @@ const ServiceDetail = () => {
             Submit Review
           </button>
         </form>
+        {/* Reviews Section */}
+        <h2 className="text-xl font-semibold mb-4">Reviews ({totalReviews})</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {reviews.map((review) => (
+            <div key={review._id} className="border p-4  py-4">
+              <div className="flex gap-4 items-center">
+                <img
+                  src={review.userPhoto || "default-avatar.jpg"}
+                  alt={review.userName}
+                  className="w-12 h-12 rounded-full"
+                />
+                <div>
+                  <h3 className="font-semibold">{review.userName}</h3>
+                  <p className="text-sm">{review.postedDate}</p>
+                </div>
+              </div>
+              <p className="mt-2">{review.reviewText}</p>
+              <Rating
+                value={review.rating}
+                style={{ maxWidth: 100 }}
+                readOnly
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

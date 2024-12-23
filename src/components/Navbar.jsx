@@ -17,7 +17,7 @@ const Navbar = () => {
       </li>
     </>
   );
-
+  
   return (
     <div className="navbar   ">
       <div className="navbar-start ">
@@ -83,8 +83,7 @@ const Navbar = () => {
           <>
             <div className="relative group hidden md:block">
               <img
-                src={
-                  user?.photoURL ||
+                src={user?.photoURL ||
                   `${"https://i.ibb.co.com/Rh2DLGL/blank-profile-picture-973460-640.png"}`
                 }
                 // alt="Profile"
@@ -127,9 +126,4 @@ const Navbar = () => {
 
 export default Navbar;
 
-// onClick={(e) => e.currentTarget.blur()}
-// className={({ isActive }) =>
-//   isActive
-//     ? "bg-[#e1e4fa] text-[#0F1035]   rounded-lg  "
-//     : "bg-[#0F1035] text-[#e1e4fa]    rounded-lg  hover:bg-[#e1e4fa]  hover:text-[#0F1035]   "
-// }
+//

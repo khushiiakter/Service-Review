@@ -28,13 +28,14 @@ const AuthProvider = ({ children }) => {
   };
 
   const authInfo = {
-    user,
+    
     setUser,
     loading,
     createNewUser,
     logOut,
     userLogIn,
     auth,
+    user,
   };
 
   useEffect(() => {
