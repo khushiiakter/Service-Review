@@ -14,6 +14,7 @@ const AddService = () => {
     description: "",
     category: "",
     price: "",
+    
   });
 
   const handleInputChange = (e) => {

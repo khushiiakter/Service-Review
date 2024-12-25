@@ -9,6 +9,7 @@ const Card2 = ({ service }) => {
     companyName,
     description,
     price,
+    
   } = service;
   return (
     <div className="border flex flex-col rounded-lg shadow-lg p-6 bg-white">
@@ -21,6 +22,7 @@ const Card2 = ({ service }) => {
       </figure>
       <div className="pt-4 flex flex-col flex-grow">
         <h3 className="text-2xl font-bold text-gray-800">{serviceTitle}</h3>
+        
         <p className="text-base text-gray-600 flex-grow mt-2">{description}</p>
         <div className="my-4 flex items-center  justify-between">
           <p className="text-lg font-semibold text-gray-600">Price: ${price}</p>
