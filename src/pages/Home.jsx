@@ -1,5 +1,6 @@
 import FeaturedServices from "../components/FeaturedServices";
-import MeetOurPartnes from "../components/MeetOurPartners";
+import MeetOurPartners from "../components/MeetOurPartners";
+import WhyUs from "../components/WhyUs";
 
 
 const Home = () => {
@@ -9,7 +10,10 @@ const Home = () => {
                 <FeaturedServices></FeaturedServices>
             </div>
             <div className="container py-8 mx-auto px-5">
-                <MeetOurPartnes></MeetOurPartnes>
+                <MeetOurPartners></MeetOurPartners>
+            </div>
+            <div className="container py-8 mx-auto px-5">
+                <WhyUs></WhyUs>
             </div>
         </div>
     );
