@@ -3,6 +3,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const MyServices = () => {
   const { user } = useContext(AuthContext);
@@ -129,11 +130,11 @@ const MyServices = () => {
   );
   return (
     <section className="container px-4 mx-auto pt-12">
+      <Helmet>
+        <title>MyServices-Service Review</title>
+      </Helmet>
       <div className="flex items-center gap-x-5">
-        <h2 className="text-3xl font-bold text-gray-800 ">My Posted Services ({services.length}) </h2>
-        
-
-        
+        <h2 className="text-3xl font-bold text-gray-800 ">My Posted Services ({services.length}) </h2>  
 
         <label className="input  input-bordered w-96 flex items-center  gap-2">
           <input type="text" value={searchQuery}

@@ -9,6 +9,7 @@ import {
   
 } from "firebase/auth";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { createNewUser, setUser, auth } = useContext(AuthContext);
@@ -86,6 +87,9 @@ const Register = () => {
 
   return (
     <div className=" flex justify-center items-center md:py-7  bg-[#f2f4ff]">
+      <Helmet>
+        <title>Register-Service Review</title>
+      </Helmet>
       <div className="card bg-[#e3e5f3d5] w-full  md:max-w-lg shrink-0 md:border-2 border-[#556180] md:rounded-3xl rounded-none md:p-9 px-1 py-6">
         <h2 className="text-3xl font-semibold text-center">
           Register your account

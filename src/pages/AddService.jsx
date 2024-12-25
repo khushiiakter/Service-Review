@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const AddService = () => {
   const { user } = useContext(AuthContext);
@@ -69,6 +70,9 @@ const AddService = () => {
 
   return (
     <div className=" flex items-center justify-center bg-gray-100">
+      <Helmet>
+        <title>AddService-Service Review</title>
+      </Helmet>
       <div className="bg-white shadow-lg mt-5 mb-10 rounded-lg w-full max-w-3xl px-8 py-6">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
           Add New Service

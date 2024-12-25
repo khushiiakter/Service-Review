@@ -4,6 +4,7 @@ import { Rating } from "@smastrom/react-rating";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const MyReviews = () => {
   const { user } = useContext(AuthContext);
@@ -104,13 +105,14 @@ const MyReviews = () => {
       .catch((error) => {
         toast.error("Failed to update review.");
       });
-
-    
   };
   return (
     <section className="py-10">
+      <Helmet>
+        <title>MyReviews-Service Review</title>
+      </Helmet>
       <div className="max-w-5xl mx-auto">
-        <h1 className="text-3xl font-bold mb-6">My Reviews</h1>
+        <h1 className="text-3xl font-bold mb-6">My Reviews ({reviews.length})</h1>
         {reviews.length === 0 && (
           <p className="text-center text-2xl text-gray-500">
             You haven't submitted any reviews yet.
@@ -118,15 +120,17 @@ const MyReviews = () => {
         )}
         <div className="grid grid-cols-1 gap-6">
           {reviews.map((review) => (
-            <div key={review._id} className="border p-4 rounded shadow">
-              <h2 className="text-xl font-bold">{review.serviceTitle}</h2>
-              <p className="my-2">{review.reviewText}</p>
-              <Rating
-                value={review.rating}
-                style={{ maxWidth: 120 }}
-                readOnly
-              />
-              <div className="flex gap-4 mt-4">
+            <div key={review._id} className="border p-4 md:flex-row flex-col  gap-6 justify-between  rounded shadow flex">
+              <div>
+                <h2 className="text-2xl font-bold">{review.serviceTitle}</h2>
+                <p className="my-2">{review.reviewText.substring(0, 150)}...</p>
+                <Rating
+                  value={review.rating}
+                  style={{ maxWidth: 120 }}
+                  readOnly
+                />
+              </div>
+              <div className="flex gap-4 items-end">
                 <button
                   className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
                   onClick={() => openUpdateModal(review)}
@@ -146,9 +150,9 @@ const MyReviews = () => {
 
         {/* Update Modal */}
         {selectedReview && (
-          <div   className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <form onSubmit={handleUpdate}
-             
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <form
+              onSubmit={handleUpdate}
               className="bg-white p-6 rounded shadow-lg max-w-md w-full"
             >
               <h2 className="text-xl font-bold mb-4">Update Review</h2>
@@ -171,9 +175,7 @@ const MyReviews = () => {
                 <button
                   type="submit"
                   className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-                  
                 >
-                  
                   Save Changes
                 </button>
                 <button

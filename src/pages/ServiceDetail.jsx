@@ -4,6 +4,7 @@ import { Link, useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import { Helmet } from "react-helmet-async";
 
 const ServiceDetail = () => {
   const { id } = useParams();
@@ -71,6 +72,9 @@ const ServiceDetail = () => {
   };
   return (
     <section className="py-10">
+      <Helmet>
+        <title>Details-Service Review</title>
+      </Helmet>
       <div className="max-w-5xl text-black mx-auto  p-6  shadow-lg rounded-lg">
         <div className=" flex flex-col md:flex-row gap-8">
           {/* photo */}
