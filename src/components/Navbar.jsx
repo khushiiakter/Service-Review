@@ -119,7 +119,7 @@ const Navbar = () => {
                   `${"https://i.ibb.co.com/Rh2DLGL/blank-profile-picture-973460-640.png"}`
                 }
                 // alt="Profile"
-                className="border-2 border-[#e3e5f3d5] w-11 h-11 mr-2 rounded-full object-cover cursor-pointer ml-16"
+                className="border-2 border-[#e3e5f3d5] w-11 h-11 mr-3 rounded-full object-cover cursor-pointer ml-16"
               />
               <div
                 className="absolute -right-4
@@ -130,7 +130,7 @@ const Navbar = () => {
             </div>
             <Link
               onClick={logOut}
-              className="btn bg-[#5f1a89] rounded-2xl px-5 text-white hover:border-white border-neutral hover:bg-black"
+              className="btn bg-[#5f1a89] rounded-2xl px-5  text-white hover:border-white border-neutral hover:bg-black"
             >
               Log Out
             </Link>

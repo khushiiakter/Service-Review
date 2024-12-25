@@ -7,10 +7,10 @@ import toast from "react-hot-toast";
 const MyServices = () => {
   const { user } = useContext(AuthContext);
   const [services, setServices] = useState([]);
-  // const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const [selectedService, setSelectedService] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   useEffect(() => {
     fetch(`http://localhost:5000/services?userEmail=${user?.email}`)
       .then((res) => res.json())
@@ -28,14 +28,13 @@ const MyServices = () => {
   };
 
   // Handle search input change
-  // const handleSearchChange = (e) => {
-  //   setSearchQuery(e.target.value.toLowerCase());
-  // };
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value.toLowerCase());
+  };
 
   const handleUpdate = (e) => {
     e.preventDefault();
     const {
-      
       serviceImage,
       serviceTitle,
       companyName,
@@ -70,9 +69,8 @@ const MyServices = () => {
                 : service
             )
           );
-          
+
           closeModal();
-          
         } else {
           toast.error("Failed to update the service!");
         }
@@ -125,15 +123,38 @@ const MyServices = () => {
     });
   };
 
+  // Filter services based on search query
+  const filteredServices = services.filter((service) =>
+    service.serviceTitle.toLowerCase().includes(searchQuery)
+  );
   return (
     <section className="container px-4 mx-auto pt-12">
       <div className="flex items-center gap-x-3">
         <h2 className="text-lg font-medium text-gray-800 ">My Posted Jobs</h2>
+        
 
         <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
           {services.length} Job
         </span>
+
+        <label className="input  input-bordered w-96 flex items-center  gap-2">
+          <input type="text" value={searchQuery}
+          onChange={handleSearchChange} className=" grow" placeholder="Search" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            className="h-4 w-4 opacity-70"
+          >
+            <path
+              fillRule="evenodd"
+              d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </label>
       </div>
+
 
       <div className="flex flex-col mt-6">
         <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -178,7 +199,7 @@ const MyServices = () => {
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200 ">
                   {/* Generate dynamic tr */}
-                  {services.map((service) => (
+                  {filteredServices.map((service) => (
                     <tr key={service._id}>
                       <td className="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">
                         {service.serviceTitle}

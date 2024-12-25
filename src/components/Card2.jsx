@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
 
-const FeatureCard = ({ service }) => {
-  const { _id, serviceImage, serviceTitle, companyName, description, price } =
-    service;
-
+const Card2 = ({ service }) => {
+  const {
+    _id,
+    serviceImage,
+    category,
+    serviceTitle,
+    companyName,
+    description,
+    price,
+  } = service;
   return (
     <div className="border flex flex-col rounded-lg shadow-lg p-6 bg-white">
       <figure className="">
@@ -16,17 +22,19 @@ const FeatureCard = ({ service }) => {
       <div className="pt-4 flex flex-col flex-grow">
         <h3 className="text-2xl font-bold text-gray-800">{serviceTitle}</h3>
         <p className="text-base text-gray-600 flex-grow mt-2">{description}</p>
-        <div className="mt-4 flex items-center  justify-between">
+        <div className="my-4 flex items-center  justify-between">
           <p className="text-lg font-semibold text-gray-600">Price: ${price}</p>
-          <Link to={`/service-details/${_id}`}>
-            <button className="text-white bg-[#0F1035] hover:text-[#0F1035] hover:bg-[#0f10356c] font-semibold  px-4 py-2 rounded-md">
+          <p className=" badge-outline  py-3 px-4 badge font-medium text-gray-500">{category}</p>
+
+        </div>
+        <Link to={`/service-details/${_id}`}>
+            <button className="text-white w-full bg-[#0F1035] hover:text-[#0F1035] hover:bg-[#0f10356c] font-semibold  px-4 py-2 rounded-xl">
               See Details
             </button>
           </Link>
-        </div>
       </div>
     </div>
   );
 };
 
-export default FeatureCard;
+export default Card2;

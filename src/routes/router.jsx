@@ -11,13 +11,14 @@ import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import MyServices from "../pages/MyServices";
 import UpdateService from "../pages/UpdateService";
+import ErrorPage from "../pages/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayouts></MainLayouts>,
-    //   errorElement: <ErrorPage></ErrorPage>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
           path: "/",
