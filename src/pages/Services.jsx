@@ -38,23 +38,23 @@ const Services = () => {
       <h1 className="text-3xl font-bold mb-6">All Services</h1>
 
       {/* Search and Filter Controls */}
-      <div className="flex flex-wrap gap-4 mb-6">
+      <div className="flex  gap-4 mb-6">
         {/* Search Input */}
         <input
           type="text"
           placeholder="Search services..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full md:w-1/2 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-green-300"
+          className=" w-2/3 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-green-300"
         />
 
         {/* Category Filter Dropdown */}
         <select
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
-          className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-green-300"
+          className="p-2  border border-gray-300 w-1/3 rounded-md focus:outline-none focus:ring focus:ring-green-300"
         >
-           {categories.map((category) => (
+          {categories.map((category) => (
             <option key={category} value={category}>
               {category}
             </option>
@@ -66,7 +66,7 @@ const Services = () => {
           // <Card2 ></Card2>
           <Card2 key={service._id} service={service}></Card2>
         ))}
-         {filteredServices.length === 0 && (
+        {filteredServices.length === 0 && (
           <p className="text-gray-500 col-span-full">
             No services found matching your criteria.
           </p>

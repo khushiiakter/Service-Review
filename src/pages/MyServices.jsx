@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
 
 const MyServices = () => {
   const { user } = useContext(AuthContext);
@@ -13,9 +14,13 @@ const MyServices = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch(`http://localhost:5000/services?userEmail=${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setServices(data));
+    // fetch(`http://localhost:5000/services?userEmail=${user?.email}`)
+    //   .then((res) => res.json())
+    //   .then((data) => setServices(data));
+    axios.get(`http://localhost:5000/services?email=${user.email}`, {
+        withCredentials: true,
+      })
+      .then((res) => setServices(res.data));
   }, [user?.email]);
 
   // Open modal to update a service
@@ -134,11 +139,18 @@ const MyServices = () => {
         <title>MyServices-Service Review</title>
       </Helmet>
       <div className="flex items-center gap-x-5">
-        <h2 className="text-3xl font-bold text-gray-800 ">My Posted Services ({services.length}) </h2>  
+        <h2 className="text-3xl font-bold text-gray-800 ">
+          My Posted Services ({services.length}){" "}
+        </h2>
 
         <label className="input  input-bordered w-96 flex items-center  gap-2">
-          <input type="text" value={searchQuery}
-          onChange={handleSearchChange} className=" grow" placeholder="Search" />
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={handleSearchChange}
+            className=" grow"
+            placeholder="Search"
+          />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -153,7 +165,6 @@ const MyServices = () => {
           </svg>
         </label>
       </div>
-
 
       <div className="flex flex-col  mt-6">
         <div className="  ">
@@ -194,11 +205,9 @@ const MyServices = () => {
                       Posted Date
                     </th>
                     <th className="px-4  text-xl font-bold text-left text-gray-800">
-                     Edit Options
+                      Edit Options
                     </th>
-
                   </tr>
-                    
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-300 ">
                   {/* Generate dynamic tr */}
@@ -228,16 +237,14 @@ const MyServices = () => {
                             onClick={() => handleDelete(service._id)}
                             className="text-gray-600 transition-colors duration-200 font-semibold  hover:text-red-500 focus:outline-none"
                           >
-                           
-                             Delete
+                            Delete
                           </button>
 
                           <button
                             onClick={() => handleEdit(service)}
                             className="text-gray-600 transition-colors duration-200  font-semibold   hover:text-gray-800 focus:outline-none"
                           >
-                            
-                              Update
+                            Update
                           </button>
                         </div>
                       </td>
@@ -250,7 +257,9 @@ const MyServices = () => {
           {isModalOpen && selectedService && (
             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
               <div className="bg-white p-6 rounded-lg  shadow-lg w-full max-w-2xl">
-                <h2 className="text-2xl font-bold text-center mb-4">Update Service</h2>
+                <h2 className="text-2xl font-bold text-center mb-4">
+                  Update Service
+                </h2>
                 <form onSubmit={handleUpdate} className="space-y-2">
                   {/* Form Fields */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -348,7 +357,10 @@ const MyServices = () => {
                     >
                       Cancel
                     </button>
-                    <button type="submit" className="text-white bg-[#0F1035] hover:text-[#0F1035] hover:bg-[#0f10356c] font-semibold  px-4 py-2 rounded-xl ">
+                    <button
+                      type="submit"
+                      className="text-white bg-[#0F1035] hover:text-[#0F1035] hover:bg-[#0f10356c] font-semibold  px-4 py-2 rounded-xl "
+                    >
                       Update
                     </button>
                   </div>
