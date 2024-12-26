@@ -1,27 +1,29 @@
 import { motion } from "framer-motion";
+
+
 const partners = [
   {
     id: 1,
     name: "Tech Solutions",
-    logo: "https://via.placeholder.com/100",
+    logo: "https://i.ibb.co.com/NVnK7LW/Tech-Solutions.jpg",
     description: "Innovative IT solutions for modern businesses.",
   },
   {
     id: 2,
     name: "Green Earth Co.",
-    logo: "https://via.placeholder.com/100",
+    logo: "https://i.ibb.co.com/N1vXFz4/GEP-logo-01.jpg",
     description: "Sustainable energy solutions for a greener future.",
   },
   {
     id: 3,
     name: "HealthFirst",
-    logo: "https://via.placeholder.com/100",
+    logo: "https://i.ibb.co.com/60jMnWt/Health-First.jpg",
     description: "Advanced healthcare services and wellness programs.",
   },
   {
     id: 4,
     name: "EduWorld",
-    logo: "https://via.placeholder.com/100",
+    logo: "https://i.ibb.co.com/PzvmLcM/EduWorld.jpg",
     description: "Empowering education with cutting-edge technology.",
   },
 ];

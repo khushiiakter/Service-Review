@@ -23,14 +23,14 @@ const Card2 = ({ service }) => {
       <div className="pt-4 flex flex-col flex-grow">
         <h3 className="text-2xl font-bold text-gray-800">{serviceTitle}</h3>
         
-        <p className="text-base text-justify text-gray-600 flex-grow mt-2">{description.substring(0, 173)} .....</p>
+        <p className="text-base text-justify text-gray-600 flex-grow mt-2">{description.substring(0, 173)}</p>
         <div className="my-4 flex items-center  justify-between">
           <p className="text-lg font-semibold text-gray-600">Price: ${price}</p>
           <p className=" badge-outline  py-3 px-4 badge font-medium text-gray-500">{category}</p>
 
         </div>
         <Link to={`/service-details/${_id}`}>
-            <button className="text-white bg-[#0F1035]  hover:bg-green-800  font-semibold  px-4 py-2 rounded-xl">
+            <button className="text-white bg-[#0F1035] w-full hover:bg-green-800  font-semibold  px-4 py-2 rounded-xl">
               See Details
             </button>
           </Link>

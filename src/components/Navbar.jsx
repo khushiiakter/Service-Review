@@ -90,7 +90,7 @@ const Navbar = () => {
               />
               <div
                 className="absolute -right-4
-               top-[60px] max-w-max bg-gray-800 text-white text-sm shadow-lg p-2 rounded hidden group-hover:block"
+               top-[50px] max-w-max z-20 bg-gray-800 text-white text-sm shadow-lg p-2 rounded hidden group-hover:block"
               >
                 {user?.displayName || "User"}
               </div>

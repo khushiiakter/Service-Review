@@ -112,8 +112,7 @@ const ServiceDetail = () => {
 
             <div className="flex gap-4 my-2 items-center">
               <h3 className="text-xl   text-gray-700">
-                <span className="font-bold text-black text-xl">Price:</span> $
-                {price}
+                <span className="font-bold text-black text-xl">Price:</span> $ {price}
               </h3>
               <h3 className="badge badge-outline p-3 text-gray-600 ">
                 {service.addedDate}
