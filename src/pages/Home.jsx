@@ -5,6 +5,8 @@ import WhyUs from "../components/WhyUs";
 import Banner from "../components/Banner";
 import AboutUs from "../components/AboutUs";
 
+import CountUpSection from "../components/CountUpSection";
+
 const Home = () => {
   return (
     <div>
@@ -23,6 +25,9 @@ const Home = () => {
       </div>
       <div className="container py-8 mx-auto md:px-5">
         <WhyUs></WhyUs>
+      </div>
+      <div className="container py-8 mx-auto md:px-5">
+        <CountUpSection></CountUpSection>
       </div>
       <div className="container py-8 mx-auto md:px-5">
         <AboutUs></AboutUs>
