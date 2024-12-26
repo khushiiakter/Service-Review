@@ -19,7 +19,7 @@ const FeatureCard = ({ service }) => {
         <div className="mt-4 flex items-center  justify-between">
           <p className="text-lg font-semibold text-gray-600">Price: ${price}</p>
           <Link to={`/service-details/${_id}`}>
-            <button className="text-white bg-[#0F1035] hover:text-[#0F1035] hover:bg-[#0f10356c] font-semibold  px-4 py-2 rounded-md">
+            <button className="text-white bg-[#0F1035]  hover:bg-green-800  font-semibold  px-4 py-2 rounded-md">
               See Details
             </button>
           </Link>

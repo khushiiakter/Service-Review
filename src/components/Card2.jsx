@@ -30,7 +30,7 @@ const Card2 = ({ service }) => {
 
         </div>
         <Link to={`/service-details/${_id}`}>
-            <button className="text-white w-full bg-[#0F1035] hover:text-[#0F1035] hover:bg-[#0f10356c] font-semibold  px-4 py-2 rounded-xl">
+            <button className="text-white bg-[#0F1035]  hover:bg-green-800  font-semibold  px-4 py-2 rounded-xl">
               See Details
             </button>
           </Link>

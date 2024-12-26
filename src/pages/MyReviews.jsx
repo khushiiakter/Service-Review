@@ -15,7 +15,7 @@ const MyReviews = () => {
   const [newRating, setNewRating] = useState(0);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+    fetch(`https://assignment-11-server-nine-peach.vercel.app/reviews?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [user?.email]);
@@ -31,7 +31,7 @@ const MyReviews = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/reviews/${_id}`, {
+        fetch(`https://assignment-11-server-nine-peach.vercel.app/reviews/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -79,7 +79,7 @@ const MyReviews = () => {
       rating: newRating,
     };
 
-    fetch(`http://localhost:5000/reviews/${selectedReview._id}`, {
+    fetch(`https://assignment-11-server-nine-peach.vercel.app/reviews/${selectedReview._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

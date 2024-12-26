@@ -34,7 +34,7 @@ const AddService = () => {
     };
 
     // Send data to the backend
-    fetch("http://localhost:5000/services", {
+    fetch("https://assignment-11-server-nine-peach.vercel.app/services", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newService),

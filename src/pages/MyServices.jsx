@@ -4,7 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
-import axios from "axios";
+
+import UseAxiosSecure from "../components/hooks/UseAxiosSecure";
 
 const MyServices = () => {
   const { user } = useContext(AuthContext);
@@ -13,13 +14,13 @@ const MyServices = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
+
+  const axiosSecure = UseAxiosSecure()
   useEffect(() => {
-    // fetch(`http://localhost:5000/services?userEmail=${user?.email}`)
+    // fetch(`https://assignment-11-server-nine-peach.vercel.app/services?userEmail=${user?.email}`)
     //   .then((res) => res.json())
     //   .then((data) => setServices(data));
-    axios.get(`http://localhost:5000/services?email=${user.email}`, {
-        withCredentials: true,
-      })
+    axiosSecure.get(`/services?email=${user?.email}`)
       .then((res) => setServices(res.data));
   }, [user?.email]);
 
@@ -59,7 +60,7 @@ const MyServices = () => {
       price: parseFloat(price.value),
     };
 
-    fetch(`http://localhost:5000/services/${selectedService._id}`, {
+    fetch(`https://assignment-11-server-nine-peach.vercel.app/services/${selectedService._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedService),
@@ -95,7 +96,7 @@ const MyServices = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/services/${_id}`, {
+        fetch(`https://assignment-11-server-nine-peach.vercel.app/services/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

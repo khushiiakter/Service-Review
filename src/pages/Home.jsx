@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import FeaturedServices from "../components/FeaturedServices";
 import MeetOurPartners from "../components/MeetOurPartners";
 import WhyUs from "../components/WhyUs";
+import Banner from "../components/Banner";
 
 const Home = () => {
   return (
@@ -9,6 +10,10 @@ const Home = () => {
       <Helmet>
         <title>Home-Service Review</title>
       </Helmet>
+      <div className="container pb-8 pt-6 mx-auto ">
+        <Banner></Banner>
+      </div>
+      
       <div className="container py-8 mx-auto px-5">
         <FeaturedServices></FeaturedServices>
       </div>
