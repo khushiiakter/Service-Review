@@ -3,6 +3,7 @@ import FeaturedServices from "../components/FeaturedServices";
 import MeetOurPartners from "../components/MeetOurPartners";
 import WhyUs from "../components/WhyUs";
 import Banner from "../components/Banner";
+import AboutUs from "../components/AboutUs";
 
 const Home = () => {
   return (
@@ -14,15 +15,19 @@ const Home = () => {
         <Banner></Banner>
       </div>
       
-      <div className="container py-8 mx-auto px-5">
+      <div className="container py-8 mx-auto md:px-5">
         <FeaturedServices></FeaturedServices>
       </div>
-      <div className="container py-8 mx-auto px-5">
+      <div className="container py-8 mx-auto md:px-5">
         <MeetOurPartners></MeetOurPartners>
       </div>
-      <div className="container py-8 mx-auto px-5">
+      <div className="container py-8 mx-auto md:px-5">
         <WhyUs></WhyUs>
       </div>
+      <div className="container py-8 mx-auto md:px-5">
+        <AboutUs></AboutUs>
+      </div>
+
     </div>
   );
 };
