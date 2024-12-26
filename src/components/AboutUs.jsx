@@ -21,7 +21,7 @@ const AboutUs = () => {
               seamless and reliable.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6">
-              <div className="flex items-center flex-col md:flex-row space-y-2 md:space-x-4">
+              <div className="flex items-center md:text-left text-center  flex-col md:flex-row space-y-2 md:space-x-4">
                 <div className="  w-12 rounded-full">
                   <img
                     src={icon1}
@@ -38,7 +38,7 @@ const AboutUs = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex items-center flex-col md:flex-row space-y-2 md:space-x-4">
+              <div className="flex items-center md:text-left text-center flex-col md:flex-row space-y-2 md:space-x-4">
                 <div className="  w-12  rounded-full">
                   <img
                     src={icon1}
@@ -55,7 +55,7 @@ const AboutUs = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex items-center flex-col md:flex-row space-y-2 md:space-x-4">
+              <div className="flex items-center md:text-left text-center  flex-col md:flex-row space-y-2 md:space-x-4">
                 <div className="  w-12  rounded-full">
                   <img
                     src={icon1}
@@ -64,7 +64,7 @@ const AboutUs = () => {
                   />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-800">
+                  <h3 className="text-xl font-bold  text-gray-800">
                     Transparent Feedback
                   </h3>
                   <p className="text-sm text-gray-600">
@@ -72,7 +72,7 @@ const AboutUs = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex items-center flex-col md:flex-row space-y-2 md:space-x-4">
+              <div className="flex items-center md:text-left text-center flex-col md:flex-row space-y-2 md:space-x-4">
                 <div className="   w-12 rounded-full">
                   <img
                     src={icon1}

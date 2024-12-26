@@ -1,7 +1,13 @@
+import logo2 from "../assets/logo2.png"
 const Footer = () => {
   return (
     <footer className="  bg-black text-neutral-content py-10 max-w-full">
-      <div className="footer mx-auto px-5 container  grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className="footer mx-auto px-5 container  grid grid-cols-1 md:grid-cols-4 gap-10">
+        <nav className="flex flex-col items-center">
+        <img src={logo2} className="w-16 text-center" alt="" />
+          <a className="  gap-1 md:text-2xl font-bold">
+            Service Review</a>
+        </nav>
         <nav>
           <h6 className="footer-title">Explore</h6>
           <a className="link link-hover">All Services</a>

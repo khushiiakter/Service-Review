@@ -1,23 +1,11 @@
 import { useContext } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
-
+import logo from "/review.png"
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  const links = (
-    <>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
-      <li>
-        <NavLink to="/services">Services</NavLink>
-      </li>
-      <li>
-        <NavLink to="/aboutUs">About US</NavLink>
-      </li>
-    </>
-  );
-  
+ 
+
   return (
     <div className="navbar   ">
       <div className="navbar-start ">
@@ -40,44 +28,32 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-white rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <ul className="menu menu-horizontal  px-1 ">
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/services">Services</NavLink>
-          </li>
-        </ul>
-        {user && (
-          <ul className="menu menu-horizontal  px-1 ">
-           
-            <li>
-              <NavLink to="/add-service">Add Service</NavLink>
-            </li>
-            <li>
-              <NavLink to="/my-services">My Service</NavLink>
-            </li>
-            <li>
-              <NavLink to="/myReviews">My Reviews</NavLink>
-            </li>
-            
-          </ul>
-        ) }
-        <ul className="menu menu-horizontal  px-1 ">
-            
+              <li>
+                <NavLink to="/">Home</NavLink>
+              </li>
+              <li>
+                <NavLink to="/services">Services</NavLink>
+              </li>
 
-            <li>
-              <NavLink to="/aboutUs">About US</NavLink>
-            </li>
-          </ul>
+              <li>
+                <NavLink to="/add-service">Add Service</NavLink>
+              </li>
+              <li>
+                <NavLink to="/my-services">My Service</NavLink>
+              </li>
+              <li>
+                <NavLink to="/myReviews">My Reviews</NavLink>
+              </li>
+            </ul>
           </ul>
         </div>
-        <a className=" md:text-2xl font-bold">Service Review</a>
+        <a className="flex items-center gap-1 md:text-2xl font-bold"><img src={logo} className="h-7" alt="" />Service Review</a>
       </div>
-      <div className="navbar-center  hidden lg:flex">
-        <ul className="menu menu-horizontal  px-1 ">
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal font-semibold  px-1 ">
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
@@ -86,8 +62,7 @@ const Navbar = () => {
           </li>
         </ul>
         {user && (
-          <ul className="menu menu-horizontal  px-1 ">
-           
+          <ul className="menu menu-horizontal  font-semibold  px-1 ">
             <li>
               <NavLink to="/add-service">Add Service</NavLink>
             </li>
@@ -97,17 +72,8 @@ const Navbar = () => {
             <li>
               <NavLink to="/myReviews">My Reviews</NavLink>
             </li>
-            
           </ul>
-        ) }
-        <ul className="menu menu-horizontal  px-1 ">
-            
-
-            <li>
-              <NavLink to="/aboutUs">About US</NavLink>
-            </li>
-          </ul>
-        
+        )}
       </div>
       <div className="md:block hidden"></div>
       <div className="navbar-end">
@@ -115,7 +81,8 @@ const Navbar = () => {
           <>
             <div className="relative group hidden md:block">
               <img
-                src={user?.photoURL ||
+                src={
+                  user?.photoURL ||
                   `${"https://i.ibb.co.com/Rh2DLGL/blank-profile-picture-973460-640.png"}`
                 }
                 // alt="Profile"
@@ -130,7 +97,7 @@ const Navbar = () => {
             </div>
             <Link
               onClick={logOut}
-              className="btn bg-[#5f1a89] rounded-2xl px-5  text-white hover:border-white border-neutral hover:bg-black"
+              className="py-2 text-white bg-[#0F1035] font-semibold hover:bg-green-800 rounded-full px-5  hover:border-white  "
             >
               Log Out
             </Link>
@@ -139,13 +106,13 @@ const Navbar = () => {
           <>
             <Link
               to="/auth/login"
-              className="btn bg-[#5f1a89] rounded-2xl mr-2 px-5 text-white hover:border-white border-neutral hover:bg-black"
+              className="py-2 text-white bg-[#0F1035] font-semibold hover:bg-green-800 rounded-full px-5  hover:border-white "
             >
               Login
             </Link>
             <Link
               to="/auth/register"
-              className="btn bg-[#5f1a89] rounded-2xl px-5 text-white hover:border-white border-neutral hover:bg-black"
+              className="py-2 text-white bg-[#0F1035] font-semibold hover:bg-green-800 rounded-full px-5  hover:border-white "
             >
               Register
             </Link>
