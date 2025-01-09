@@ -50,7 +50,7 @@ const Navbar = () => {
             </ul>
           </ul>
         </div>
-        <a className="flex items-center gap-1 md:text-2xl font-bold"><img src={logo} className="h-7" alt="" />Service-Review</a>
+        <a className="flex items-center gap-1 md:text-2xl font-bold"><img src={logo} className="h-7" alt="" />Service Review</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal font-semibold  px-1 ">
