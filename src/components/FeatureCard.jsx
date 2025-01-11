@@ -5,21 +5,21 @@ const FeatureCard = ({ service }) => {
     service;
 
   return (
-    <div className="border flex flex-col rounded-lg shadow-lg p-6 bg-white">
-      <figure className="">
+    <div className="border flex flex-col justify-between gap-4 rounded-lg shadow-lg p-4 bg-white">
+      <div className="h-[160px]">
         <img
           src={serviceImage}
           alt={serviceTitle}
-          className="w-full h-52 object-cover rounded-lg"
+          className="w-full h-full object-cover rounded-lg"
         />
-      </figure>
-      <div className="pt-4 flex flex-col flex-grow">
-        <h3 className="text-2xl font-bold text-gray-800">{serviceTitle}</h3>
+      </div>
+      <div className=" flex flex-col flex-grow">
+        <h3 className="text-[21px] font-bold text-gray-800">{serviceTitle}</h3>
         <p className="text-base text-gray-600 flex-grow mt-2">{description.substring(0, 170)}</p>
         <div className="mt-4 flex items-center  justify-between">
           <p className="text-lg font-semibold text-gray-600">Price: ${price}</p>
           <Link to={`/service-details/${_id}`}>
-            <button className="text-white bg-[#0F1035]  hover:bg-green-800  font-semibold  px-4 py-2 rounded-md">
+            <button className="text-white bg-[#0F1035]  hover:bg-green-800  font-semibold  px-4 py-1.5 rounded-md">
               See Details
             </button>
           </Link>

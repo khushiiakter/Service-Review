@@ -121,9 +121,9 @@ const MyReviews = () => {
         <div className="grid grid-cols-1 gap-6">
           {reviews.map((review) => (
             <div key={review._id} className="border p-4 md:flex-row flex-col  gap-6 justify-between  rounded shadow flex">
-              <div>
+              <div className="md:w-8/12">
                 <h2 className="text-2xl font-bold">{review.serviceTitle}</h2>
-                <p className="my-2">{review.reviewText.substring(0, 150)}...</p>
+                <p className="my-2 ">{review.reviewText.substring(0, 150)}...</p>
                 <Rating
                   value={review.rating}
                   style={{ maxWidth: 120 }}
@@ -132,13 +132,13 @@ const MyReviews = () => {
               </div>
               <div className="flex gap-4 items-end">
                 <button
-                  className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                  className="bg-[#0F1035] hover:bg-green-800  text-white px-4 py-2 rounded-3xl "
                   onClick={() => openUpdateModal(review)}
                 >
                   Update
                 </button>
                 <button
-                  className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                  className="bg-[#0F1035]   text-white px-4 py-2 rounded-3xl  hover:bg-red-800"
                   onClick={() => handleDelete(review._id)}
                 >
                   Delete

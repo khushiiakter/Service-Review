@@ -86,7 +86,7 @@ const Register = () => {
  
 
   return (
-    <div className=" flex justify-center items-center md:py-7  bg-[#f2f4ff]">
+    <div className="bg-gray-100 flex justify-center items-center md:py-7  ">
       <Helmet>
         <title>Register-Service Review</title>
       </Helmet>
@@ -157,7 +157,7 @@ const Register = () => {
             </label>
           </div>
           <div className="form-control mt-3">
-            <button className="btn btn-neutral rounded-full">Register</button>
+            <button className="btn text-white bg-[#0F1035] w-full hover:bg-green-800  rounded-full">Register</button>
           </div>
           <div className="divider text-black">OR</div>
 
@@ -170,7 +170,7 @@ const Register = () => {
         </form>
         <p className="text-center font-semibold">
           Already have an account?{" "}
-          <Link className="text-red-500" to="/auth/login">
+          <Link className="text-[#0F1035] hover:text-green-800" to="/auth/login">
             Login
           </Link>
         </p>

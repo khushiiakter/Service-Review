@@ -51,7 +51,7 @@ const Login = () => {
  
 
   return (
-    <div className=" flex justify-center items-center md:py-7  bg-[#f2f4ff]">
+    <div className=" flex justify-center items-center md:pt-7 pb-14 bg-gray-100 w-full   ">
       <Helmet>
         <title>Login-Service Review</title>
       </Helmet>
@@ -100,21 +100,21 @@ const Login = () => {
             </label>
           </div>
           <div className="form-control mt-3">
-            <button className="btn btn-neutral rounded-full">Login</button>
+            <button className="btn btn-neutral text-white bg-[#0F1035] w-full hover:bg-green-800  rounded-full">Login</button>
           </div>
 
           <div className="divider text-black">OR</div>
 
           <button
             onClick={handleGoogleLogin}
-            className="btn btn-outline rounded-full"
+            className="btn btn-outline  rounded-full"
           >
             Continue with Google
           </button>
         </form>
         <p className="text-center font-semibold">
           Don't Have An Account ?{" "}
-          <Link className="text-red-500" to="/auth/register">
+          <Link className="text-[#0F1035] hover:text-green-800" to="/auth/register">
             Register
           </Link>
         </p>

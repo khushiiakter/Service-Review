@@ -61,7 +61,7 @@ const Services = () => {
           ))}
         </select>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-5 pb-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-4 pb-5">
         {filteredServices.map((service) => (
           // <Card2 ></Card2>
           <Card2 key={service._id} service={service}></Card2>

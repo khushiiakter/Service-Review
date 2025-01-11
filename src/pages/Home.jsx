@@ -13,23 +13,23 @@ const Home = () => {
       <Helmet>
         <title>Home-Service Review</title>
       </Helmet>
-      <div className="container   mx-auto ">
+      <div className="container   mx-auto px-2">
         <Banner></Banner>
       </div>
       
-      <div className="container py-8 mx-auto md:px-5">
+      <div className="container py-8 mx-auto md:px-4 px-2">
         <FeaturedServices></FeaturedServices>
       </div>
-      <div className="container py-8 mx-auto md:px-5">
+      <div className="container py-8 mx-auto md:px-3">
         <MeetOurPartners></MeetOurPartners>
       </div>
-      <div className="container py-8 mx-auto md:px-5">
+      <div className="container py-8 mx-auto md:px-3">
         <WhyUs></WhyUs>
       </div>
-      <div className="container py-8 mx-auto md:px-5">
+      <div className="container py-8 mx-auto md:px-3">
         <CountUpSection></CountUpSection>
       </div>
-      <div className="container py-8 mx-auto md:px-5">
+      <div className="container py-8 mx-auto md:px-3">
         <AboutUs></AboutUs>
       </div>
 
