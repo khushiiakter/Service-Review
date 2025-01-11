@@ -13,6 +13,8 @@ import MyServices from "../pages/MyServices";
 import UpdateService from "../pages/UpdateService";
 import ErrorPage from "../pages/ErrorPage";
 
+import Membership from "../pages/Membership";
+
 
 const router = createBrowserRouter([
     {
@@ -59,8 +61,8 @@ const router = createBrowserRouter([
           
         },
         {
-          path: "/aboutUs",
-          element: <h1>about us</h1> ,
+          path: "/membership",
+          element: <Membership></Membership> ,
          
           
         },

@@ -63,6 +63,9 @@ const Navbar = () => {
           <li>
             <NavLink to="/services">Services</NavLink>
           </li>
+          <li>
+            <NavLink to="/membership">Membership Plan</NavLink>
+          </li>
         </ul>
         {user && (
           <ul className="menu menu-horizontal  font-semibold  px-1 ">
