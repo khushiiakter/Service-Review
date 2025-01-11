@@ -11,9 +11,9 @@ const MainLayouts = () => {
         <Helmet>
           <title>Service Review</title>
         </Helmet>
-        <nav className="md:px-6 bg-base-100 container mx-auto sm:-px-4">
+        <div className="w-full   backdrop-blur-3xl fixed z-30">
           <Navbar></Navbar>
-        </nav>
+        </div>
 
         <section className=" min-h-screen">
           <Outlet></Outlet>

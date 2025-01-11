@@ -13,7 +13,7 @@ const Home = () => {
       <Helmet>
         <title>Home-Service Review</title>
       </Helmet>
-      <div className="container pb-8 pt-6 mx-auto ">
+      <div className="container   mx-auto ">
         <Banner></Banner>
       </div>
       

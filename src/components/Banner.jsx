@@ -1,9 +1,9 @@
 const Banner = () => {
   return (
-    <div className="carousel  w-full md:h-[560px]">
-      <div id="banner1" className="carousel-item relative w-full ">
-        <div className=" px-4 md:pl-10 rounded-lg  flex flex-col lg:flex-row items-center md:justify-between  ">
-          <div className="md:w-6/12 md:text-left flex flex-col gap-6 md:mx-8  text-center ">
+    <div className="carousel mt-[68px]  w-full md:h-[73vh]">
+      <div id="banner1" className="carousel-item mt-2  relative w-full ">
+        <div className="px-4 md:pl-10 rounded-lg  flex flex-col lg:flex-row items-center md:justify-between  ">
+          <div className=" md:w-6/12 md:text-left flex flex-col gap-6 md:mx-8  text-center ">
             <h2 className="text-3xl md:leading-tight md:text-[54px] font-extrabold text-[#0F1035]  hover:text-green-900">
               Trusted User Reviews
             </h2>
@@ -34,7 +34,7 @@ const Banner = () => {
         </div>
       </div>
 
-      <div id="banner2" className="carousel-item relative w-full">
+      <div id="banner2" className="carousel-item mt-2   relative w-full">
         <div className="  px-4 md:pl-10 rounded-lg  flex flex-col lg:flex-row items-center md:justify-between   ">
           <div className="md:w-6/12 md:text-left flex flex-col gap-6 md:mx-8  text-center ">
             <h2 className="text-3xl md:leading-tight md:text-[54px] font-extrabold text-[#0F1035]  hover:text-green-900">
@@ -67,7 +67,7 @@ const Banner = () => {
         </div>
       </div>
 
-      <div id="banner3" className="carousel-item relative w-full">
+      <div id="banner3" className="carousel-item mt-2  relative w-full">
         <div className=" px-4 md:pl-10 rounded-lg  flex flex-col lg:flex-row items-center md:justify-between   ">
           <div className="md:w-6/12 md:text-left flex flex-col gap-6 md:mx-8  text-center ">
             <h2 className="text-3xl md:leading-tight md:text-[54px] font-extrabold text-[#0F1035]  hover:text-green-900">

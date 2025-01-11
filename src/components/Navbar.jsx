@@ -5,12 +5,12 @@ import logo from "/review.png"
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
  
-
+// navbar fixed z-50 md:px-6   w-full  backdrop-blur-2xl bg-black -px-4 text-white 
   return (
-    <div className="navbar   ">
+    <div className="navbar    container mx-auto     ">
       <div className="navbar-start ">
         <div className="dropdown ">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className="btn btn-ghost  pl-0 lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -50,7 +50,10 @@ const Navbar = () => {
             </ul>
           </ul>
         </div>
-        <a className="flex items-center gap-1 md:text-2xl font-bold"><img src={logo} className="h-7" alt="" />Service Review</a>
+        <a className="flex items-center md:gap-1 ">
+          <img src={logo} className="h-7 md:block hidden" alt="" />
+          <p className="md:text-2xl text-lg font-bold">Service Review</p>
+          </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal font-semibold  px-1 ">
@@ -97,7 +100,7 @@ const Navbar = () => {
             </div>
             <Link
               onClick={logOut}
-              className="py-2 text-white bg-[#0F1035] font-semibold hover:bg-green-800 rounded-full px-5  hover:border-white  "
+              className="md:py-2 py-2 px-4 mr-2 text-sm md:text-base text-white bg-[#0F1035] font-semibold hover:bg-green-800 rounded-full md:px-5  hover:border-white "
             >
               Log Out
             </Link>
@@ -106,13 +109,13 @@ const Navbar = () => {
           <>
             <Link
               to="/auth/login"
-              className="py-2 mr-2 text-white bg-[#0F1035] font-semibold hover:bg-green-800 rounded-full px-5  hover:border-white "
+              className="md:py-2 py-2 px-4 mr-2 text-sm md:text-base text-white bg-[#0F1035] font-semibold hover:bg-green-800 rounded-full md:px-5  hover:border-white "
             >
               Login
             </Link>
             <Link
               to="/auth/register"
-              className="py-2 text-white bg-[#0F1035] font-semibold hover:bg-green-800 rounded-full px-5  hover:border-white "
+              className="md:py-2 text-white py-2 px-4 text-sm md:text-base bg-[#0F1035] font-semibold hover:bg-green-800 rounded-full md:px-5  hover:border-white "
             >
               Register
             </Link>
