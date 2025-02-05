@@ -61,4 +61,24 @@ Service Review System is a full-stack application designed to provide users with
 - **axios** for API calls
 - **moment.js** for date formatting
 
+## 🚀 Getting Started
+Follow these steps to set up the project locally:
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/khushiiakter/Service-Review.git
+   ```
+2. **Navigate to the project folder:**
+   ```sh
+   cd Service-Review
+   ```
+3. **Install dependencies:**
+   ```sh
+   npm install
+   ```
+4. **Run the development server:**
+   ```sh
+   npm start
+   ```
+5. Open `http://localhost:3000` in your browser.
+
 
