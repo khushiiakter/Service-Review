@@ -5,7 +5,7 @@
 Service Review System is a full-stack application designed to provide users with a platform for exploring, reviewing, and sharing feedback on various services. It aims to empower users with trusted information and insights to make informed decisions.
 
 ## Live URL
-[Live Demo](https://assignment-11-eb26e.web.app/)(https://i.ibb.co.com/XfQJrj39/Screenshot-2025-02-05-152922.png)
+[Live Demo](https://assignment-11-eb26e.web.app/)
 
 ## Key Features
 - **Service Management**:
