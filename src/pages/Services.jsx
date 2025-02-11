@@ -1,5 +1,4 @@
 import { useLoaderData } from "react-router-dom";
-
 import Card2 from "../components/Card2";
 import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
@@ -8,6 +7,7 @@ const Services = () => {
   const services = useLoaderData();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedSort, setSelectedSort] = useState("");
   const [categories, setCategories] = useState(["All"]);
 
   useEffect(() => {
@@ -30,29 +30,35 @@ const Services = () => {
     return matchesSearch && matchesCategory;
   });
 
+  const sortedServices = [...filteredServices].sort((a, b) => {
+    if (selectedSort === "asc") return a.price - b.price;
+    if (selectedSort === "desc") return b.price - a.price;
+    return 0;
+  });
+
   return (
-    <section className="container py-8  mx-auto px-5">
+    <section className="container py-8 mx-auto px-5">
       <Helmet>
         <title>AllServices-Service Review</title>
       </Helmet>
       <h1 className="text-3xl font-bold mb-6">All Services</h1>
 
-      {/* Search and Filter Controls */}
-      <div className="flex  gap-4 mb-6">
+      {/* Search, Filter, and Sort Controls */}
+      <div className="flex  md:gap-4 gap-2 mb-6">
         {/* Search Input */}
         <input
           type="text"
           placeholder="Search services..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className=" w-2/3 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-green-300"
+          className="w-full md:w-1/3 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-[#0F1035]"
         />
 
         {/* Category Filter Dropdown */}
         <select
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
-          className="p-2  border border-gray-300 w-1/3 rounded-md focus:outline-none focus:ring focus:ring-green-300"
+          className="p-2 border border-gray-300 md:w-1/3 w-1/2 rounded-md focus:outline-none focus:ring focus:ring-[#0F1035]"
         >
           {categories.map((category) => (
             <option key={category} value={category}>
@@ -60,13 +66,24 @@ const Services = () => {
             </option>
           ))}
         </select>
+
+        {/* Sorting Dropdown */}
+        <select
+          value={selectedSort}
+          onChange={(e) => setSelectedSort(e.target.value)}
+          className="p-2 border border-gray-300 md:w-1/3 w-1/2 rounded-md focus:outline-none focus:ring focus:ring-[#0F1035]"
+        >
+          <option value="">Sort by</option>
+          <option value="asc">Price: Low to High</option>
+          <option value="desc">Price: High to Low</option>
+        </select>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-4 pb-5">
-        {filteredServices.map((service) => (
-          // <Card2 ></Card2>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pb-5">
+        {sortedServices.map((service) => (
           <Card2 key={service._id} service={service}></Card2>
         ))}
-        {filteredServices.length === 0 && (
+        {sortedServices.length === 0 && (
           <p className="text-gray-500 col-span-full">
             No services found matching your criteria.
           </p>
