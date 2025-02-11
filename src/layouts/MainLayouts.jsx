@@ -15,7 +15,7 @@ const MainLayouts = () => {
           <Navbar></Navbar>
         </div>
 
-        <section className="pt-[68px] min-h-screen">
+        <section className=" min-h-screen">
           <Outlet></Outlet>
         </section>
 

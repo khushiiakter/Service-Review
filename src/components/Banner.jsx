@@ -1,6 +1,6 @@
 const Banner = () => {
   return (
-    <div className="carousel  w-full md:h-[72vh]">
+    <div className="carousel mt-[68px] w-full md:h-[70vh]">
       <div id="banner1" className="carousel-item mt-2  relative w-full ">
         <div className="px-4 md:pl-10 rounded-lg pt-10  flex flex-col lg:flex-row items-center md:justify-between  ">
           <div className=" md:w-6/12 md:text-left flex flex-col gap-6 md:mx-8  text-center ">
@@ -15,7 +15,7 @@ const Banner = () => {
               Learn More
             </button>
           </div>
-          <div className=" md:w-6/12 md:h-[560px]">
+          <div className=" md:w-6/12 md:h-[530px]">
             <img
               className="h-full w-full  object-cover"
               src="https://i.ibb.co.com/7yKtyqr/3885964.jpg"
@@ -48,7 +48,7 @@ const Banner = () => {
               Learn More
             </button>
           </div>
-          <div className=" md:w-6/12 md:h-[560px]">
+          <div className=" md:w-6/12 md:h-[530px]">
             <img
               className="h-full w-full object-cover"
               src="https://i.ibb.co.com/XYNWv8M/5351750.jpg"
@@ -81,7 +81,7 @@ const Banner = () => {
               Learn More
             </button>
           </div>
-          <div className=" md:w-6/12 md:h-[560px]">
+          <div className=" md:w-6/12 md:h-[530px]">
             <img
               className="h-full w-full object-cover"
               src="https://i.ibb.co.com/NryzLjb/72fb0a640b7b374e7d864d96da0a0468.jpg"

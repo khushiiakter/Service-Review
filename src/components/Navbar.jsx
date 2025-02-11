@@ -5,7 +5,7 @@ import logo from "/review.png"
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
  
-// navbar fixed z-50 md:px-6   w-full  backdrop-blur-2xl bg-black -px-4 text-white 
+
   return (
     <div className="navbar    container mx-auto     ">
       <div className="navbar-start ">
@@ -30,7 +30,7 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-white rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
-            <ul className="menu menu-horizontal  px-1 ">
+            <ul className="menu menu-vertical  px-1 ">
               <li>
                 <NavLink to="/">Home</NavLink>
               </li>
