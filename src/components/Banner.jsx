@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Banner = () => {
   return (
     <div className="carousel mt-[68px] w-full md:h-[70vh]">
@@ -11,9 +13,11 @@ const Banner = () => {
               Discover honest feedback from verified users to make informed
               decisions about the services you choose.
             </p>
-            <button className=" md:place-self-start place-self-center w-fit py-3 px-6 rounded-full  text-white bg-[#0F1035]  hover:bg-green-800 font-semibold   ">
-              Learn More
-            </button>
+            <Link to="/services">
+              <button className=" md:place-self-start place-self-center w-fit py-3 px-6 rounded-full  text-white bg-[#0F1035]  hover:bg-green-800 font-semibold   ">
+                Learn More
+              </button>
+            </Link>
           </div>
           <div className=" md:w-6/12 md:h-[530px]">
             <img
@@ -44,9 +48,11 @@ const Banner = () => {
               Discover honest feedback from verified users to make informed
               decisions about the services you choose.
             </p>
-            <button className=" md:place-self-start place-self-center w-fit py-3 px-6 rounded-full  text-white bg-[#0F1035]  hover:bg-green-800 font-semibold ">
-              Learn More
-            </button>
+            <Link to="/services">
+              <button className=" md:place-self-start place-self-center w-fit py-3 px-6 rounded-full  text-white bg-[#0F1035]  hover:bg-green-800 font-semibold   ">
+                Learn More
+              </button>
+            </Link>
           </div>
           <div className=" md:w-6/12 md:h-[530px]">
             <img
@@ -77,9 +83,11 @@ const Banner = () => {
               Discover honest feedback from verified users to make informed
               decisions about the services you choose.
             </p>
-            <button className=" md:place-self-start place-self-center w-fit py-3 px-6 rounded-full  text-white bg-[#0F1035]  hover:bg-green-800 font-semibold ">
-              Learn More
-            </button>
+            <Link to="/services">
+              <button className=" md:place-self-start place-self-center w-fit py-3 px-6 rounded-full  text-white bg-[#0F1035]  hover:bg-green-800 font-semibold   ">
+                Learn More
+              </button>
+            </Link>
           </div>
           <div className=" md:w-6/12 md:h-[530px]">
             <img
